@@ -1,0 +1,387 @@
+"use client";
+
+import { useState } from "react";
+
+export default function Home() {
+  const [language, setLanguage] = useState("en");
+
+  const content = {
+    en: {
+      company: "Shandong Fukunda Energy Co., Ltd.",
+      hero: "Smart Asphalt Storage & Logistics Platform",
+      services: "Our Products & Services",
+      contact: "Contact Us",
+      whatsapp: "WhatsApp Us",
+      message: "Send Message",
+      profile: "Company Profile",
+      address:
+        "Gaofeng Logistics Park, Gaoliu Town, Qingzhou City, Weifang, Shandong, China",
+
+      servicesList: [
+        {
+          name: "Bitumen / Asphalt",
+          image:
+            "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "Wax Oil",
+          image:
+            "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "Diesel Products",
+          image:
+            "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "Transportation Logistics",
+          image:
+            "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "Oil Storage Tanks",
+          image:
+            "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "Energy Solutions",
+          image:
+            "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2070&auto=format&fit=crop",
+        },
+      ],
+    },
+
+    zh: {
+      company: "山东富坤达能源有限公司",
+      hero: "智慧沥青储运物流平台",
+      services: "我们的产品与服务",
+      contact: "联系我们",
+      whatsapp: "WhatsApp 联系",
+      message: "发送信息",
+      profile: "公司简介",
+      address:
+        "中国山东省潍坊市青州市高柳镇高冯物流园",
+
+      servicesList: [
+        {
+          name: "沥青产品",
+          image:
+            "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "蜡油产品",
+          image:
+            "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "柴油产品",
+          image:
+            "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "运输物流",
+          image:
+            "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "油罐储存",
+          image:
+            "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2070&auto=format&fit=crop",
+        },
+        {
+          name: "能源解决方案",
+          image:
+            "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=2070&auto=format&fit=crop",
+        },
+      ],
+    },
+  };
+
+  const t = content[language as "en" | "zh"];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800">
+
+      {/* LANGUAGE BUTTON */}
+      <div className="fixed top-5 right-5 z-50">
+        <button
+          onClick={() =>
+            setLanguage(language === "en" ? "zh" : "en")
+          }
+          className="bg-white text-blue-900 px-5 py-3 rounded-xl shadow-xl font-bold border"
+        >
+          {language === "en" ? "中文" : "English"}
+        </button>
+      </div>
+
+      {/* WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/8613031780814"
+        target="_blank"
+        className="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-2xl font-bold hover:bg-green-600 z-50"
+      >
+        WhatsApp
+      </a>
+
+      {/* HERO SECTION */}
+      <section className="relative bg-blue-900 text-white py-32 px-6 overflow-hidden">
+
+        <img
+          src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop"
+          alt="Oil Storage"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+
+        <div className="relative max-w-6xl mx-auto text-center z-10">
+
+          {/* COMPANY LOGO */}
+          <img
+            src="/logo.jpg"
+            alt="Fukunda Logo"
+            className="w-40 mx-auto mb-8 rounded-2xl shadow-2xl bg-white p-3"
+          />
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            {t.company}
+          </h1>
+
+          <p className="text-2xl md:text-3xl mb-10">
+            {t.hero}
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-5 justify-center">
+
+            <a
+              href="https://wa.me/8613031780814"
+              target="_blank"
+              className="bg-green-500 text-white px-8 py-4 rounded-2xl font-bold hover:bg-green-600 transition"
+            >
+              {t.whatsapp}
+            </a>
+
+            <a
+              href="#contact"
+              className="bg-white text-blue-900 px-8 py-4 rounded-2xl font-bold hover:bg-gray-200 transition"
+            >
+              {t.contact}
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* COMPANY PROFILE */}
+      <section className="py-20 px-6 bg-gray-100">
+
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-5xl font-bold text-center text-blue-900 mb-14">
+            {t.profile}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+
+            <div className="space-y-6 text-lg leading-9 text-gray-700">
+
+              <p>
+                Shandong Fukunda Energy Co., Ltd. was established on March 2, 2023,
+                and is located in Gaofeng Logistics Park, Gaoliu Town, Qingzhou City,
+                Weifang, Shandong Province, China.
+              </p>
+
+              <p>
+                The company specializes in asphalt storage, logistics transportation,
+                wax oil, diesel products, energy technology, and intelligent 5G logistics systems.
+              </p>
+
+              <p>
+                The company has developed a smart asphalt logistics platform integrating
+                asphalt sales, storage, transportation, energy monitoring, and security systems.
+              </p>
+
+              <ul className="space-y-3 ml-5">
+                <li>✅ Asphalt Storage Solutions</li>
+                <li>✅ Oil & Diesel Transportation</li>
+                <li>✅ Wax Oil Supply</li>
+                <li>✅ Smart Logistics Management</li>
+                <li>✅ Energy Technology Solutions</li>
+                <li>✅ International Trade Services</li>
+              </ul>
+
+              <div className="bg-blue-900 text-white p-6 rounded-3xl text-center text-2xl font-bold shadow-xl">
+                “Integrity • Pragmatism • Co-Creation • Win-Win Cooperation”
+              </div>
+
+            </div>
+
+            <div>
+
+              <img
+                src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop"
+                alt="Oil Storage Tanks"
+                className="rounded-3xl shadow-2xl mb-8"
+              />
+
+              <img
+                src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2070&auto=format&fit=crop"
+                alt="Industrial Energy"
+                className="rounded-3xl shadow-2xl"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PRODUCTS & SERVICES */}
+      <section className="py-20 px-6">
+
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-4xl font-bold text-center text-blue-900 mb-14">
+            {t.services}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {t.servicesList.map((service: any, index: number) => (
+              <div
+                key={index}
+                className="bg-white shadow-2xl rounded-3xl overflow-hidden hover:scale-105 transition"
+              >
+
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  className="h-56 w-full object-cover"
+                />
+
+                <div className="p-8">
+
+                  <h3 className="text-2xl font-bold text-blue-900 mb-4">
+                    {service.name}
+                  </h3>
+
+                  <p className="text-gray-600 leading-7">
+                    High-quality industrial petroleum and logistics solutions for global energy markets.
+                  </p>
+
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="py-20 px-6 bg-gray-100"
+      >
+
+        <div className="max-w-6xl mx-auto">
+
+          <h2 className="text-4xl font-bold text-center text-blue-900 mb-12">
+            {t.contact}
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            <div className="bg-white rounded-3xl shadow-xl p-8">
+
+              <h3 className="text-3xl font-bold text-blue-900 mb-6">
+                Company Information
+              </h3>
+
+              <p className="mb-6 text-lg">
+                <strong>Address:</strong><br />
+                {t.address}
+              </p>
+
+              <p className="mb-6 text-lg">
+                <strong>Company Email:</strong><br />
+                FukundaChina@126.com
+              </p>
+
+              <p className="mb-6 text-lg">
+                <strong>Personal Email:</strong><br />
+                nadirawan241@gmail.com
+              </p>
+
+              <p className="mb-6 text-lg">
+                <strong>Company Phones:</strong><br />
+                +86 18353338279<br />
+                +86 19090266267<br />
+                +86 17705333833
+              </p>
+
+              <p className="text-lg">
+                <strong>WhatsApp:</strong><br />
+                +86 13031780814
+              </p>
+
+            </div>
+
+            <div className="bg-white rounded-3xl shadow-xl p-8">
+
+              <h3 className="text-3xl font-bold text-blue-900 mb-6">
+                {t.message}
+              </h3>
+
+              <form className="space-y-5">
+
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full border p-4 rounded-xl"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full border p-4 rounded-xl"
+                />
+
+                <textarea
+                  placeholder="Your Message"
+                  rows={5}
+                  className="w-full border p-4 rounded-xl"
+                ></textarea>
+
+                <button
+                  className="bg-blue-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-800"
+                >
+                  {t.message}
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-white py-8 text-center">
+
+        <p>
+          © 2026 Shandong Fukunda Energy Co., Ltd.
+        </p>
+
+      </footer>
+
+    </div>
+  );
+}
